@@ -15,3 +15,4 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
   sudo ./aws/install
 
 RUN npm i -g @architect/architect
+RUN npm i -g aws-sdk

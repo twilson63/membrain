@@ -1,0 +1,8 @@
+<% if (it.account) { %>
+<div>
+  <%= it.account.username %>
+  <button hx-post="/logout">Logout</button>
+</div>
+<% } else { %>
+<a href="<%= it.href %>">Login</a>
+<% } %>

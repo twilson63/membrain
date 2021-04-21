@@ -1,0 +1,23 @@
+<header class="
+  text-center 
+  mx-4 
+  my-8 
+  md:my-16
+">
+  <h1 class="
+    text-3xl 
+    md:text-6xl 
+    font-bold 
+    uppercase
+  ">
+    Membrain
+  </h1>
+  <% if (it.account) { %>
+  <div id="account">
+    <div><%= it.account.name %></div>
+    <button hx-post="/logout" hx-target="#main" hx-push-url="/" _="on click remove #account" hx-swap="outerHTML">
+      Logout
+    </button>
+  </div>
+  <% } %>
+</header>
