@@ -2,7 +2,47 @@
 <%~ include('header', it) %>
 <main class="mx-4 md:mx-32">
   <header>
-    <h2><%= it.note.title %></h2>
+    <div class="flex justify-end space-x-6">
+      <a href="/notes/<%= it.note.id %>/edit" class="
+          inline-flex 
+          items-center 
+          px-6 
+          py-3 
+          border 
+          border-transparent 
+          text-base 
+          font-medium 
+          rounded-md 
+          shadow-sm 
+          text-white 
+          bg-gray-600 
+          hover:bg-gray-700 
+          focus:outline-none 
+          focus:ring-2 
+          focus:ring-offset-2 
+          focus:ring-gray-500
+        ">Edit Note</a>
+      <a href="/notes" class="
+          inline-flex 
+          items-center 
+          px-6 
+          py-3 
+          border 
+          border-transparent 
+          text-base 
+          font-medium 
+          rounded-md 
+          shadow-sm 
+          text-white 
+          bg-gray-600 
+          hover:bg-gray-700 
+          focus:outline-none 
+          focus:ring-2 
+          focus:ring-offset-2 
+          focus:ring-gray-500
+      ">View Notes</a>
+    </div>
+    <h2 class="text-xl md:text-4xl"><%= it.note.title %></h2>
   </header>
   <div class="my-16 md:my-32">
     <%~ it.note.html %>
