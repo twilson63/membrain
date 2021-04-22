@@ -6,10 +6,13 @@ get /
 get /login
 get /auth
 post /logout
+
+# notes 
 get /notes
 get /notes/new
-
-# @aws
-# profile default
-# region us-west-1
+post /notes/create
+get /notes/:id
+get /notes/:id/edit
+put /notes/:id
+delete /notes/:id
   

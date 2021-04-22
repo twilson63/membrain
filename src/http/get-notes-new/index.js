@@ -5,6 +5,12 @@ let { path } = require('ramda')
 async function newNote(req) {
   let account = path(['session', 'account'], req)
   // check for session - if no session return welcome
+  if (!account) {
+    return {
+      statusCode: 302,
+      location: '/'
+    }
+  }
 
   return {
     statusCode: 200,

@@ -4,14 +4,15 @@ let { path } = require('ramda')
 let { list } = require('@architect/shared/lib/notes/controller')
 
 async function notes(req) {
-  if (!path(['session', 'account'], req)) {
+  const account = path(['session', 'account'], req)
+  if (!account) {
     return {
       statusCode: 302,
       location: '/'
     }
   }
   // get list of notes 
-  let notes = await list()
+  let notes = await list(account.login)
   return {
     statusCode: 200,
     headers: {
@@ -19,7 +20,7 @@ async function notes(req) {
       'content-type': 'text/html; charset=utf8'
     },
     body: template('notes', {
-      account: path(['session', 'account'], req),
+      account,
       title: 'Membrain - Notes',
       tailwind: arc.static('/tailwind.css'),
       notes

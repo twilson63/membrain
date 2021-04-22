@@ -5,11 +5,10 @@
   <% if (it.notes) { %>
   <ul>
     <% it.notes.forEach(function(note) { %>
-    <li><%= note.title %></li>
+    <li><a href="/notes/<%= note.id %>"><%= note.title %></a></li>
     <% }) %>
   </ul>
   <% } else { %>
-  <div>No notes found, <button hx-get="/notes/new" hx-target="#main" hx-push-url="/notes/new" hx-swap="outerHTML">Create
-      a Note</button></div>
+  <div>No notes found, <a href="/notes/new">Create new Note</a></div>
   <% } %>
 </main>

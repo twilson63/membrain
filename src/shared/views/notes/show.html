@@ -1,0 +1,13 @@
+<% layout('_layout.html') %>
+<%~ include('header', it) %>
+<main class="mx-4 md:mx-32">
+  <header>
+    <h2><%= it.note.title %></h2>
+  </header>
+  <div class="my-16 md:my-32">
+    <%~ it.note.html %>
+  </div>
+  <hr />
+  <%= it.note.tags %>
+</main>
+<%~ include('footer') %>

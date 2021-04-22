@@ -1,22 +1,73 @@
-<main id="main" class="mx-4 md:mx-32">
-  <header>
-    <h2>Note Form</h2>
-  </header>
-  <form>
-    <div>
-      <label>Title</label>
-      <input type=" text" />
+<% layout('_layout.html') %>
+<%~ include('header', it) %>
+<main id="main" class="mx-4 md:mx-32 space-y-6">
+  <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Note</h3>
+        <p class="mt-1 text-sm text-gray-500">
+          Create/Update a secure note for your future self!
+        </p>
+      </div>
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        <form hx-post="/notes/create" hx-ext="json-enc" class="space-y-6" action="#" method="POST">
+          <div class="grid grid-cols-3 gap-6">
+            <div class="col-span-6 sm:col-span-4">
+              <label for="title" class="block text-sm font-medium text-gray-700">
+                Title
+              </label>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <input type="text" name="title" id="title" autocomplete="off"
+                  class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="body" class="block text-sm font-medium text-gray-700">
+              Content
+            </label>
+            <div class="mt-1">
+              <textarea id="body" name="body" rows="25"
+                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+            </div>
+            <p class="mt-2 text-sm text-gray-500">
+              Enter your secure content here, you also can leverage markdown to format any text.
+              <a href="https://www.markdownguide.org/">Markdown Guide</a>
+            </p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-6">
+            <div class="col-span-6 sm:col-span-4">
+              <label for="tags" class="block text-sm font-medium text-gray-700">
+                Tags
+              </label>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <input type="text" name="tags" id="tags" autocomplete="off"
+                  class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
+              </div>
+              <p class="mt-2 text-sm text-gray-500">
+                Enter a comma separated list of keywords that may help you search for this document in the future.
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <button type="button"
+              class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Cancel
+            </button>
+            <button type="submit"
+              class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Save
+            </button>
+          </div>
+
+        </form>
+      </div>
     </div>
-    <div>
-      <label>Content</label>
-      <textarea></textarea>
-    </div>
-    <div>
-      <label>Tags</label>
-      <input type="text" />
-    </div>
-    <div>
-      <button type="submit">Submit</button>
-    </div>
-  </form>
+  </div>
+
+
+
 </main>
+<%~ include('footer', it) %>
