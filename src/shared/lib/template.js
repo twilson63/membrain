@@ -12,12 +12,17 @@ const views = {
   notes: fs.readFileSync(viewDir + '/notes.html', 'utf-8'),
   header: fs.readFileSync(viewDir + '/header.html', 'utf-8'),
   welcome: fs.readFileSync(viewDir + '/welcome.html', 'utf-8'),
-  footer: fs.readFileSync(viewDir + '/footer.html', 'utf-8')
+  footer: fs.readFileSync(viewDir + '/footer.html', 'utf-8'),
+  notesList: fs.readFileSync(viewDir + '/notes/list.html', 'utf-8'),
+  notesForm: fs.readFileSync(viewDir + '/notes/form.html', 'utf-8'),
+  notesSearch: fs.readFileSync(viewDir + '/notes/search.html', 'utf-8')
 }
 
 eta.templates.define('welcome', eta.compile(views.welcome))
 eta.templates.define('header', eta.compile(views.header))
 eta.templates.define('footer', eta.compile(views.footer))
+eta.templates.define('notes-list', eta.compile(views.notesList))
+
 
 module.exports = (view, data) => {
   if (!views[view]) {

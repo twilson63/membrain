@@ -1,0 +1,15 @@
+<main id="main" class="mx-4 md:mx-32">
+  <header>
+    <h2>Your Notes</h2>
+  </header>
+  <% if (it.notes) { %>
+  <ul>
+    <% it.notes.forEach(function(note) { %>
+    <li><%= note.title %></li>
+    <% }) %>
+  </ul>
+  <% } else { %>
+  <div>No notes found, <button hx-get="/notes/new" hx-target="#main" hx-push-url="/notes/new" hx-swap="outerHTML">Create
+      a Note</button></div>
+  <% } %>
+</main>

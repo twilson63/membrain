@@ -7,6 +7,7 @@ get /login
 get /auth
 post /logout
 get /notes
+get /notes/new
 
 # @aws
 # profile default
