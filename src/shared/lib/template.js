@@ -5,19 +5,23 @@ const viewDir = path.resolve(__dirname + '/../views')
 
 eta.configure({ views: viewDir })
 
+const read = p => fs.readFileSync(viewDir + p, 'utf-8')
+
 const views = {
-  index: fs.readFileSync(viewDir + '/index.html', 'utf-8'),
-  layout: fs.readFileSync(viewDir + '/_layout.html', 'utf-8'),
-  auth: fs.readFileSync(viewDir + '/auth.html', 'utf-8'),
-  notes: fs.readFileSync(viewDir + '/notes.html', 'utf-8'),
-  header: fs.readFileSync(viewDir + '/header.html', 'utf-8'),
-  welcome: fs.readFileSync(viewDir + '/welcome.html', 'utf-8'),
-  footer: fs.readFileSync(viewDir + '/footer.html', 'utf-8'),
-  notesList: fs.readFileSync(viewDir + '/notes/list.html', 'utf-8'),
-  notesForm: fs.readFileSync(viewDir + '/notes/form.html', 'utf-8'),
-  notesSearch: fs.readFileSync(viewDir + '/notes/search.html', 'utf-8'),
-  notesCreate: fs.readFileSync(viewDir + '/notes/create.html', 'utf-8'),
-  notesShow: fs.readFileSync(viewDir + '/notes/show.html', 'utf-8')
+  index: read('/index.html'),
+  layout: reac('/_layout.html'),
+  auth: read('/auth.html'),
+  notes: read('/notes.html'),
+  header: read('/header.html'),
+  welcome: read('/welcome.html'),
+  footer: read('/footer.html'),
+  notesList: read('/notes/list.html'),
+  notesForm: read('/notes/form.html'),
+  notesSearch: read('/notes/search.html'),
+  notesCreate: read('/notes/create.html'),
+  notesError: read('/notes/error.html'),
+  notesShow: read('/notes/show.html'),
+  notesUpdate: read('/notes/update.html')
 }
 
 eta.templates.define('welcome', eta.compile(views.welcome))

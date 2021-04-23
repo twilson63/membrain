@@ -17,6 +17,7 @@ async function getNote(req) {
       tailwind: arc.static('/tailwind.css'),
       note: {
         html: marked(note.body || '_no content_'),
+	id: req.params.id,
         ...note
       }
     })
